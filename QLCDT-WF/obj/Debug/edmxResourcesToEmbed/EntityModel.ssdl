@@ -48,7 +48,6 @@
     </Key>
     <Property Name="IDSIM" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="CMND" Type="varchar" MaxLength="20" />
-    <Property Name="NGAYKICHHOAT" Type="datetime" />
     <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="THAMSO">

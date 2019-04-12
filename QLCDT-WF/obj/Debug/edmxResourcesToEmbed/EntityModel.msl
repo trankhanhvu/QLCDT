@@ -48,7 +48,6 @@
         <MappingFragment StoreEntitySet="SIM">
           <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
-          <ScalarProperty Name="NGAYKICHHOAT" ColumnName="NGAYKICHHOAT" />
           <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -23,7 +23,6 @@ namespace QLCDT_WF
     
         public string IDSIM { get; set; }
         public string CMND { get; set; }
-        public Nullable<System.DateTime> NGAYKICHHOAT { get; set; }
         public string TRANGTHAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

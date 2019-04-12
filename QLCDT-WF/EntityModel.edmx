@@ -53,7 +53,6 @@
           </Key>
           <Property Name="IDSIM" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="CMND" Type="varchar" MaxLength="20" />
-          <Property Name="NGAYKICHHOAT" Type="datetime" />
           <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="THAMSO">
@@ -176,7 +175,6 @@
           </Key>
           <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="NGAYKICHHOAT" Type="DateTime" Precision="3" />
           <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CTSDs" Relationship="Self.fk_ctsd_sim" FromRole="SIM" ToRole="CTSD" />
           <NavigationProperty Name="HOADONs" Relationship="Self.fk_hd_sim" FromRole="SIM" ToRole="HOADON" />
@@ -299,7 +297,6 @@
               <MappingFragment StoreEntitySet="SIM">
                 <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
                 <ScalarProperty Name="CMND" ColumnName="CMND" />
-                <ScalarProperty Name="NGAYKICHHOAT" ColumnName="NGAYKICHHOAT" />
                 <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
               </MappingFragment>
             </EntityTypeMapping>

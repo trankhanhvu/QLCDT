@@ -105,7 +105,7 @@ namespace QLCDT_WF
             textBoxchucvu.Text = dskh.Rows[selectedrow].Cells[3].Value.ToString();
             textBoxdiachi.Text = dskh.Rows[selectedrow].Cells[4].Value.ToString();
             textBoxemail.Text = dskh.Rows[selectedrow].Cells[5].Value.ToString();
-            comboBoxtrangthaisim.Text = dskh.Rows[selectedrow].Cells[8].Value.ToString();
+            comboBoxtrangthaisim.Text = dskh.Rows[selectedrow].Cells[7].Value.ToString();
         }
 
         private void buttonsuathongtin_Click(object sender, EventArgs e)

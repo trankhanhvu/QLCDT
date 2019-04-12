@@ -25,8 +25,7 @@ namespace QLCDT_WF.DAO
                               CHUCVU = a.CHUCVU,
                               DIACHI = a.DIACHI,
                               EMAIL = a.EMAIL,
-                              IDSIM = b.IDSIM,
-                              NGAYKICHHOAT = b.NGAYKICHHOAT,
+                              IDSIM = b.IDSIM,                            
                               TRANGTHAI = b.TRANGTHAI
                           }).ToArray();
             return listkh;
@@ -91,8 +90,7 @@ namespace QLCDT_WF.DAO
                               NGHENGHIEP = a.NGHENGHIEP,
                               CHUCVU = a.CHUCVU,
                               DIACHI = a.DIACHI,
-                              IDSIM = b.IDSIM,
-                              NGAYKICHHOAT = b.NGAYKICHHOAT
+                              IDSIM = b.IDSIM                             
                           }).ToArray();
             return listkh;
         }

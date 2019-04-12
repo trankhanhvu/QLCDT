@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Windows.Forms;
 
 namespace QLCDT_WF.DAO
 {
@@ -103,7 +104,11 @@ namespace QLCDT_WF.DAO
         {
             Random rd = new Random(Guid.NewGuid().GetHashCode());
             StreamWriter write = new StreamWriter("log.txt");
-        
+            QLCDTEntities1 db = new QLCDTEntities1();
+            int ngayhientai = DateTime.Now.Day;
+            int thanghientai = DateTime.Now.Month;
+            int namhientai = DateTime.Now.Year;
+
             for (int i=0; i<100;i++)
             {                         
                 StreamReader read = new StreamReader("sim.txt");
@@ -134,10 +139,8 @@ namespace QLCDT_WF.DAO
 
                 write.Write(idsim + "\t" + ngaybd + " " + tgbd + "\t" + ngaykt + " " + tgkt + "\n");
                 
-                int ngayhientai = DateTime.Now.Day;
-                int thanghientai = DateTime.Now.Month;
-                int namhientai = DateTime.Now.Year;
-                QLCDTEntities1 db = new QLCDTEntities1();
+                
+                
 
                 // if (int.Parse(ngaybd.Substring(0,4)) < namhientai || ( int.Parse(ngaybd.Substring(0, 4)) == namhientai && int.Parse(ngaybd.Substring(5,2)) < thanghientai ))
                 
@@ -169,12 +172,12 @@ namespace QLCDT_WF.DAO
                     hd.THANG = thang;
                     hd.NAM = nam;
                     hd.TONGTIEN = 50000;
-                    hd.TRANGTHAI = "Chưa thanh toán";
+                    hd.TRANGTHAI = "Đã thanh toán";
                     db.HOADONs.Add(hd);
                     db.SaveChanges();
                 }
-                else
-                if(ktranullhoadon != null)
+                
+                if(nam < namhientai || (nam == namhientai && thang < thanghientai))
                 {
                     HOADON update = (from a in db.HOADONs
                                      where a.IDSIM == idsim && a.THANG == thang && a.NAM == nam
@@ -182,8 +185,81 @@ namespace QLCDT_WF.DAO
                     update.TONGTIEN = update.TONGTIEN + tinhphi(tgbd, tgkt);
                     db.SaveChanges();
                 }
-                               
+                                                                  
             }
+            
+            //thêm vào những tháng không có ctsd phí hòa mạng 50k
+            var them = (from a in db.HOADONs
+                        select new
+                        {
+                            IDSIM = a.IDSIM,
+                            NAM = a.NAM
+                        }).Distinct().ToList();
+
+            foreach (var data in them)
+            {
+                if (data.NAM < namhientai)
+                {
+                    var danhsachthangchuaco = (from a in db.HOADONs
+                                               where a.IDSIM == data.IDSIM && a.NAM == data.NAM
+                                               select a).ToList();
+
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        int dem = 0;
+                        foreach(var data2 in danhsachthangchuaco)
+                        {
+                            if (i == data2.THANG)
+                            { dem++; break; }
+
+                        }
+                        if(dem==0)
+                        {
+                            HOADON hd = new HOADON();
+                            hd.IDSIM = data.IDSIM;
+                            hd.THANG = i;
+                            hd.NAM = data.NAM;
+                            hd.TONGTIEN = 50000;
+                            hd.TRANGTHAI = "Đã thanh toán";
+                            db.HOADONs.Add(hd);
+                            db.SaveChanges();
+                        }
+                            
+                    }
+                }
+
+                if (data.NAM == namhientai)
+                {
+                    var danhsachthangchuaco = (from a in db.HOADONs
+                                               where a.IDSIM == data.IDSIM && a.NAM == data.NAM
+                                               select a).ToList();
+
+                    for (int i = 1; i < thanghientai; i++)
+                    {
+                        int dem = 0;
+                        foreach (var data2 in danhsachthangchuaco)
+                        {
+                            if (i == data2.THANG)
+                            { dem++; break; }
+
+                        }
+                        if (dem == 0)
+                        {
+                            HOADON hd = new HOADON();
+                            hd.IDSIM = data.IDSIM;
+                            hd.THANG = i;
+                            hd.NAM = data.NAM;
+                            hd.TONGTIEN = 50000;
+                            hd.TRANGTHAI = "Đã thanh toán";
+                            db.HOADONs.Add(hd);
+                            db.SaveChanges();
+                        }
+
+                    }
+                }
+
+            }
+            
 
             write.Close();
         }

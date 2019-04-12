@@ -51,7 +51,6 @@
     </Key>
     <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="NGAYKICHHOAT" Type="DateTime" Precision="3" />
     <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CTSDs" Relationship="Self.fk_ctsd_sim" FromRole="SIM" ToRole="CTSD" />
     <NavigationProperty Name="HOADONs" Relationship="Self.fk_hd_sim" FromRole="SIM" ToRole="HOADON" />

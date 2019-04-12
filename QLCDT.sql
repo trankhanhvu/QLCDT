@@ -9,8 +9,7 @@
 
 CREATE TABLE SIM(
 	IDSIM varchar(20) primary key,
-	CMND varchar(20),
-	NGAYKICHHOAT datetime,
+	CMND varchar(20),	
 	TRANGTHAI nvarchar(20)
 );
 
@@ -69,5 +68,5 @@ INSERT INTO CUOC values(17,7,1000); --tối
 
 INSERT INTO KHACHHANG values('206184646',N'Vũ đập chai','Sinh viên',N'Không có',N'Hóc Môn','boykunis90@gmail.com');
 
-INSERT INTO SIM values('0773187889','206184646','2019-03-29',N'Đã kích hoạt');
+INSERT INTO SIM values('0773187889','206184646',N'Đã kích hoạt');
 

@@ -64,8 +64,7 @@ namespace QLCDT_WF
 
                 SIM thongtinsim = new SIM();
                 thongtinsim.IDSIM = textBoxidsim.Text;
-                thongtinsim.CMND = textBoxcmnd.Text;
-                thongtinsim.NGAYKICHHOAT = DateTime.Now;
+                thongtinsim.CMND = textBoxcmnd.Text;               
                 thongtinsim.TRANGTHAI = "Đã kích hoạt";
 
                 KHACHHANGBUS.ThemKH(thongtinkh, thongtinsim);

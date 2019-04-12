@@ -30,15 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dskh = new System.Windows.Forms.DataGridView();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nghenghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idsim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaykichhoat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +48,14 @@
             this.textBoxemail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxtrangthaisim = new System.Windows.Forms.ComboBox();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nghenghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idsim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dskh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +81,6 @@
             this.diachi,
             this.email,
             this.idsim,
-            this.ngaykichhoat,
             this.trangthai});
             this.dskh.Location = new System.Drawing.Point(97, 65);
             this.dskh.Name = "dskh";
@@ -90,78 +88,6 @@
             this.dskh.Size = new System.Drawing.Size(852, 188);
             this.dskh.TabIndex = 1;
             this.dskh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dskh_CellClick);
-            // 
-            // CMND
-            // 
-            this.CMND.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CMND.DataPropertyName = "cmnd";
-            this.CMND.HeaderText = "CMND";
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            // 
-            // tenkh
-            // 
-            this.tenkh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenkh.DataPropertyName = "tenkh";
-            this.tenkh.HeaderText = "Tên Khách Hàng";
-            this.tenkh.Name = "tenkh";
-            this.tenkh.ReadOnly = true;
-            // 
-            // nghenghiep
-            // 
-            this.nghenghiep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nghenghiep.DataPropertyName = "nghenghiep";
-            this.nghenghiep.HeaderText = "Nghề Nghiệp";
-            this.nghenghiep.Name = "nghenghiep";
-            this.nghenghiep.ReadOnly = true;
-            // 
-            // chucvu
-            // 
-            this.chucvu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.chucvu.DataPropertyName = "chucvu";
-            this.chucvu.HeaderText = "Chức Vụ";
-            this.chucvu.Name = "chucvu";
-            this.chucvu.ReadOnly = true;
-            // 
-            // diachi
-            // 
-            this.diachi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.diachi.DataPropertyName = "diachi";
-            this.diachi.HeaderText = "Địa Chỉ";
-            this.diachi.Name = "diachi";
-            this.diachi.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // idsim
-            // 
-            this.idsim.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idsim.DataPropertyName = "idsim";
-            this.idsim.HeaderText = "IDSIM";
-            this.idsim.Name = "idsim";
-            this.idsim.ReadOnly = true;
-            // 
-            // ngaykichhoat
-            // 
-            this.ngaykichhoat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaykichhoat.DataPropertyName = "ngaykichhoat";
-            this.ngaykichhoat.HeaderText = "Ngày kích hoạt";
-            this.ngaykichhoat.Name = "ngaykichhoat";
-            this.ngaykichhoat.ReadOnly = true;
-            // 
-            // trangthai
-            // 
-            this.trangthai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.trangthai.DataPropertyName = "trangthai";
-            this.trangthai.HeaderText = "Trạng thái";
-            this.trangthai.Name = "trangthai";
-            this.trangthai.ReadOnly = true;
             // 
             // label2
             // 
@@ -328,6 +254,70 @@
             this.comboBoxtrangthaisim.Size = new System.Drawing.Size(199, 21);
             this.comboBoxtrangthaisim.TabIndex = 20;
             // 
+            // CMND
+            // 
+            this.CMND.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CMND.DataPropertyName = "cmnd";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            // 
+            // tenkh
+            // 
+            this.tenkh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenkh.DataPropertyName = "tenkh";
+            this.tenkh.HeaderText = "Tên Khách Hàng";
+            this.tenkh.Name = "tenkh";
+            this.tenkh.ReadOnly = true;
+            // 
+            // nghenghiep
+            // 
+            this.nghenghiep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nghenghiep.DataPropertyName = "nghenghiep";
+            this.nghenghiep.HeaderText = "Nghề Nghiệp";
+            this.nghenghiep.Name = "nghenghiep";
+            this.nghenghiep.ReadOnly = true;
+            // 
+            // chucvu
+            // 
+            this.chucvu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.chucvu.DataPropertyName = "chucvu";
+            this.chucvu.HeaderText = "Chức Vụ";
+            this.chucvu.Name = "chucvu";
+            this.chucvu.ReadOnly = true;
+            // 
+            // diachi
+            // 
+            this.diachi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.diachi.DataPropertyName = "diachi";
+            this.diachi.HeaderText = "Địa Chỉ";
+            this.diachi.Name = "diachi";
+            this.diachi.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // idsim
+            // 
+            this.idsim.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idsim.DataPropertyName = "idsim";
+            this.idsim.HeaderText = "IDSIM";
+            this.idsim.Name = "idsim";
+            this.idsim.ReadOnly = true;
+            // 
+            // trangthai
+            // 
+            this.trangthai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.trangthai.DataPropertyName = "trangthai";
+            this.trangthai.HeaderText = "Trạng thái";
+            this.trangthai.Name = "trangthai";
+            this.trangthai.ReadOnly = true;
+            // 
             // MHquanlykh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +373,10 @@
         private System.Windows.Forms.Button buttonsuathongtin;
         private System.Windows.Forms.Button buttonxemctsd;
         private System.Windows.Forms.Button buttonxemhd;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxemail;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBoxtrangthaisim;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenkh;
         private System.Windows.Forms.DataGridViewTextBoxColumn nghenghiep;
@@ -390,11 +384,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn idsim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaykichhoat;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangthai;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxemail;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBoxtrangthaisim;
     }
 }
