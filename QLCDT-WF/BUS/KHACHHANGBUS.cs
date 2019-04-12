@@ -30,5 +30,6 @@ namespace QLCDT_WF.BUS
         {
             return KHACHHANGDAO.searchkh(name);
         }
+		// hello
     }
 }
