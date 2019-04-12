@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLCDTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTSD">
+    <Key>
+      <PropertyRef Name="TGBD" />
+      <PropertyRef Name="TGKT" />
+    </Key>
+    <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TGBD" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TGKT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="THANHTIEN" Type="Double" />
+    <NavigationProperty Name="SIM" Relationship="Self.fk_ctsd_sim" FromRole="CTSD" ToRole="SIM" />
+  </EntityType>
+  <EntityType Name="CUOC">
+    <Key>
+      <PropertyRef Name="GIOBD" />
+      <PropertyRef Name="GIOKT" />
+    </Key>
+    <Property Name="GIOBD" Type="Int32" Nullable="false" />
+    <Property Name="GIOKT" Type="Int32" Nullable="false" />
+    <Property Name="PHI" Type="Double" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="IDSIM" />
+      <PropertyRef Name="THANG" />
+      <PropertyRef Name="NAM" />
+    </Key>
+    <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="THANG" Type="Int32" Nullable="false" />
+    <Property Name="NAM" Type="Int32" Nullable="false" />
+    <Property Name="TONGTIEN" Type="Double" />
+    <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SIM" Relationship="Self.fk_hd_sim" FromRole="HOADON" ToRole="SIM" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="CMND" />
+    </Key>
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGHENGHIEP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SIMs" Relationship="Self.fk_sim_kh" FromRole="KHACHHANG" ToRole="SIM" />
+  </EntityType>
+  <EntityType Name="SIM">
+    <Key>
+      <PropertyRef Name="IDSIM" />
+    </Key>
+    <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYKICHHOAT" Type="DateTime" Precision="3" />
+    <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTSDs" Relationship="Self.fk_ctsd_sim" FromRole="SIM" ToRole="CTSD" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.fk_hd_sim" FromRole="SIM" ToRole="HOADON" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.fk_sim_kh" FromRole="SIM" ToRole="KHACHHANG" />
+  </EntityType>
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="MATS" />
+    </Key>
+    <Property Name="MATS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIENGIAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIATRI" Type="Double" />
+  </EntityType>
+  <Association Name="fk_ctsd_sim">
+    <End Role="SIM" Type="Self.SIM" Multiplicity="0..1" />
+    <End Role="CTSD" Type="Self.CTSD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="CTSD">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hd_sim">
+    <End Role="SIM" Type="Self.SIM" Multiplicity="1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sim_kh">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="SIM" Type="Self.SIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="CMND" />
+      </Principal>
+      <Dependent Role="SIM">
+        <PropertyRef Name="CMND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLCDTEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTSDs" EntityType="Self.CTSD" />
+    <EntitySet Name="CUOCs" EntityType="Self.CUOC" />
+    <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="SIMs" EntityType="Self.SIM" />
+    <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
+    <AssociationSet Name="fk_ctsd_sim" Association="Self.fk_ctsd_sim">
+      <End Role="SIM" EntitySet="SIMs" />
+      <End Role="CTSD" EntitySet="CTSDs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hd_sim" Association="Self.fk_hd_sim">
+      <End Role="SIM" EntitySet="SIMs" />
+      <End Role="HOADON" EntitySet="HOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sim_kh" Association="Self.fk_sim_kh">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="SIM" EntitySet="SIMs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
