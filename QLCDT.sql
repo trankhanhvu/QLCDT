@@ -1,4 +1,5 @@
-﻿CREATE TABLE KHACHHANG(
+﻿GO
+CREATE TABLE KHACHHANG(
 	CMND varchar(20) primary key,
 	TENKH nvarchar(100),
 	NGHENGHIEP nvarchar(50),
@@ -42,7 +43,7 @@ CREATE TABLE CUOC(
 	PHI float,
 	PRIMARY KEY(GIOBD,GIOKT)
 );
-
+GO
 
 Alter table SIM
 	add constraint fk_sim_kh
@@ -58,7 +59,7 @@ Alter table CTSD
 	add constraint fk_ctsd_sim
 	foreign key (IDSIM)
 	references SIM (IDSIM)
-
+GO
 --ADD DATA
 
 INSERT INTO THAMSO values('PHIHM','phí hòa mạng',50000);
@@ -66,7 +67,7 @@ INSERT INTO THAMSO values('PHIHM','phí hòa mạng',50000);
 INSERT INTO CUOC values(7,17,500); --sáng
 INSERT INTO CUOC values(17,7,1000); --tối
 
-INSERT INTO KHACHHANG values('206184646',N'Vũ đập chai','Sinh viên',N'Không có',N'Hóc Môn','boykunis90@gmail.com');
+INSERT INTO KHACHHANG values('206184646',N'Trần Khánh Vũ','Sinh viên',N'Không có',N'Hóc Môn','boykunis90@gmail.com');
 
 INSERT INTO SIM values('0773187889','206184646',N'Đã kích hoạt');
 

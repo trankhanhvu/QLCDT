@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLCDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTSD">
+          <Key>
+            <PropertyRef Name="TGBD" />
+            <PropertyRef Name="TGKT" />
+          </Key>
+          <Property Name="IDSIM" Type="varchar" MaxLength="20" />
+          <Property Name="TGBD" Type="datetime" Nullable="false" />
+          <Property Name="TGKT" Type="datetime" Nullable="false" />
+          <Property Name="THANHTIEN" Type="float" />
+        </EntityType>
+        <EntityType Name="CUOC">
+          <Key>
+            <PropertyRef Name="GIOBD" />
+            <PropertyRef Name="GIOKT" />
+          </Key>
+          <Property Name="GIOBD" Type="int" Nullable="false" />
+          <Property Name="GIOKT" Type="int" Nullable="false" />
+          <Property Name="PHI" Type="float" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDSIM" />
+            <PropertyRef Name="THANG" />
+            <PropertyRef Name="NAM" />
+          </Key>
+          <Property Name="IDSIM" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="THANG" Type="int" Nullable="false" />
+          <Property Name="NAM" Type="int" Nullable="false" />
+          <Property Name="TONGTIEN" Type="float" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="CMND" />
+          </Key>
+          <Property Name="CMND" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TENKH" Type="nvarchar" MaxLength="100" />
+          <Property Name="NGHENGHIEP" Type="nvarchar" MaxLength="50" />
+          <Property Name="CHUCVU" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SIM">
+          <Key>
+            <PropertyRef Name="IDSIM" />
+          </Key>
+          <Property Name="IDSIM" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CMND" Type="varchar" MaxLength="20" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="THAMSO">
+          <Key>
+            <PropertyRef Name="MATS" />
+          </Key>
+          <Property Name="MATS" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="DIENGIAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIATRI" Type="float" />
+        </EntityType>
+        <Association Name="fk_ctsd_sim">
+          <End Role="SIM" Type="Self.SIM" Multiplicity="0..1" />
+          <End Role="CTSD" Type="Self.CTSD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIM">
+              <PropertyRef Name="IDSIM" />
+            </Principal>
+            <Dependent Role="CTSD">
+              <PropertyRef Name="IDSIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_hd_sim">
+          <End Role="SIM" Type="Self.SIM" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIM">
+              <PropertyRef Name="IDSIM" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDSIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sim_kh">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="SIM" Type="Self.SIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="CMND" />
+            </Principal>
+            <Dependent Role="SIM">
+              <PropertyRef Name="CMND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLCDTModelStoreContainer">
+          <EntitySet Name="CTSD" EntityType="Self.CTSD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUOC" EntityType="Self.CUOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SIM" EntityType="Self.SIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THAMSO" EntityType="Self.THAMSO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_ctsd_sim" Association="Self.fk_ctsd_sim">
+            <End Role="SIM" EntitySet="SIM" />
+            <End Role="CTSD" EntitySet="CTSD" />
+          </AssociationSet>
+          <AssociationSet Name="fk_hd_sim" Association="Self.fk_hd_sim">
+            <End Role="SIM" EntitySet="SIM" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sim_kh" Association="Self.fk_sim_kh">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="SIM" EntitySet="SIM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLCDTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTSD">
+          <Key>
+            <PropertyRef Name="TGBD" />
+            <PropertyRef Name="TGKT" />
+          </Key>
+          <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TGBD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TGKT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <NavigationProperty Name="SIM" Relationship="Self.fk_ctsd_sim" FromRole="CTSD" ToRole="SIM" />
+        </EntityType>
+        <EntityType Name="CUOC">
+          <Key>
+            <PropertyRef Name="GIOBD" />
+            <PropertyRef Name="GIOKT" />
+          </Key>
+          <Property Name="GIOBD" Type="Int32" Nullable="false" />
+          <Property Name="GIOKT" Type="Int32" Nullable="false" />
+          <Property Name="PHI" Type="Double" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDSIM" />
+            <PropertyRef Name="THANG" />
+            <PropertyRef Name="NAM" />
+          </Key>
+          <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="THANG" Type="Int32" Nullable="false" />
+          <Property Name="NAM" Type="Int32" Nullable="false" />
+          <Property Name="TONGTIEN" Type="Double" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SIM" Relationship="Self.fk_hd_sim" FromRole="HOADON" ToRole="SIM" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="CMND" />
+          </Key>
+          <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NGHENGHIEP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SIMs" Relationship="Self.fk_sim_kh" FromRole="KHACHHANG" ToRole="SIM" />
+        </EntityType>
+        <EntityType Name="SIM">
+          <Key>
+            <PropertyRef Name="IDSIM" />
+          </Key>
+          <Property Name="IDSIM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CTSDs" Relationship="Self.fk_ctsd_sim" FromRole="SIM" ToRole="CTSD" />
+          <NavigationProperty Name="HOADONs" Relationship="Self.fk_hd_sim" FromRole="SIM" ToRole="HOADON" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.fk_sim_kh" FromRole="SIM" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="THAMSO">
+          <Key>
+            <PropertyRef Name="MATS" />
+          </Key>
+          <Property Name="MATS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIENGIAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIATRI" Type="Double" />
+        </EntityType>
+        <Association Name="fk_ctsd_sim">
+          <End Role="SIM" Type="Self.SIM" Multiplicity="0..1" />
+          <End Role="CTSD" Type="Self.CTSD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIM">
+              <PropertyRef Name="IDSIM" />
+            </Principal>
+            <Dependent Role="CTSD">
+              <PropertyRef Name="IDSIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_hd_sim">
+          <End Role="SIM" Type="Self.SIM" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIM">
+              <PropertyRef Name="IDSIM" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDSIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sim_kh">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="SIM" Type="Self.SIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="CMND" />
+            </Principal>
+            <Dependent Role="SIM">
+              <PropertyRef Name="CMND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLCDTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTSDs" EntityType="Self.CTSD" />
+          <EntitySet Name="CUOCs" EntityType="Self.CUOC" />
+          <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="SIMs" EntityType="Self.SIM" />
+          <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
+          <AssociationSet Name="fk_ctsd_sim" Association="Self.fk_ctsd_sim">
+            <End Role="SIM" EntitySet="SIMs" />
+            <End Role="CTSD" EntitySet="CTSDs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_hd_sim" Association="Self.fk_hd_sim">
+            <End Role="SIM" EntitySet="SIMs" />
+            <End Role="HOADON" EntitySet="HOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sim_kh" Association="Self.fk_sim_kh">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="SIM" EntitySet="SIMs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLCDTModelStoreContainer" CdmEntityContainer="QLCDTEntities">
+          <EntitySetMapping Name="CTSDs">
+            <EntityTypeMapping TypeName="QLCDTModel.CTSD">
+              <MappingFragment StoreEntitySet="CTSD">
+                <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+                <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+                <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUOCs">
+            <EntityTypeMapping TypeName="QLCDTModel.CUOC">
+              <MappingFragment StoreEntitySet="CUOC">
+                <ScalarProperty Name="GIOBD" ColumnName="GIOBD" />
+                <ScalarProperty Name="GIOKT" ColumnName="GIOKT" />
+                <ScalarProperty Name="PHI" ColumnName="PHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONs">
+            <EntityTypeMapping TypeName="QLCDTModel.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+                <ScalarProperty Name="THANG" ColumnName="THANG" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="QLCDTModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="NGHENGHIEP" ColumnName="NGHENGHIEP" />
+                <ScalarProperty Name="CHUCVU" ColumnName="CHUCVU" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIMs">
+            <EntityTypeMapping TypeName="QLCDTModel.SIM">
+              <MappingFragment StoreEntitySet="SIM">
+                <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THAMSOes">
+            <EntityTypeMapping TypeName="QLCDTModel.THAMSO">
+              <MappingFragment StoreEntitySet="THAMSO">
+                <ScalarProperty Name="MATS" ColumnName="MATS" />
+                <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
+                <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,55 @@
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe.config
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.pdb
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csprojResolveAssemblyReference.cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Formchonchucnang.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Properties.Resources.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.GenerateResource.Cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.CoreCompileInputs.cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.exe
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.pdb
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.dll
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.dll
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.xml
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.xml
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlykh.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHdangki.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyctsd.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyhd.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe.config
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.pdb
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.dll
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.dll
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.xml
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.xml
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csprojAssemblyReference.cache
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Formchonchucnang.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHdangki.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyctsd.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyhd.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlykh.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Properties.Resources.resources
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.GenerateResource.cache
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.CoreCompileInputs.cache
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.CopyComplete
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.exe
+F:\Education\XDPM\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.pdb
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe.config
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.exe
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\QLCDT-WF.pdb
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.dll
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.dll
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.xml
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\bin\Debug\EntityFramework.SqlServer.xml
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csprojResolveAssemblyReference.cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Formchonchucnang.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHdangki.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyctsd.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlyhd.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.MHquanlykh.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT_WF.Properties.Resources.resources
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.GenerateResource.Cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.csproj.CoreCompileInputs.cache
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.exe
+E:\xây dựng phần mềm theo mô hình phân lớp\QLCDT\QLCDT-WF\QLCDT-WF\obj\Debug\QLCDT-WF.pdb

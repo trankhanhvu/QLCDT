@@ -1,0 +1,115 @@
+﻿@model QLCDT1.Models.MyViewModel
+@using PagedList.Mvc;
+@using PagedList
+<br /><br />
+<span>Số điện thoại</span>
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching", null, new { @placeholder = "Nhập vào Số điện thoại" })<input type="submit" value="Search" id="searchbox" />
+}
+<table style="width:40%;margin:auto;text-align:left;background-color:#2d3436;margin-top:50px;color:#dfe6e9">
+    <thead>
+        <tr>
+            <th colspan="2" style="text-align:center;border-bottom:1px solid white">Thông tin người dùng</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.ListKH.Count() == 0)
+        {
+            <tr>
+                <td colspan="2" style="color:red">
+                    Không tìm thấy số điện thoại !!!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model.ListKH.Take(1))
+            {
+                <tr>
+                    <td>Họ tên: </td>
+                    <td>@item.TENKH</td>
+                </tr>
+                <tr>
+                    <td>Chứng minh nhân dân: </td>
+                    <td>@item.CMND</td>
+                </tr>
+                <tr>
+                    <td>ID Sim: </td>
+                    <td>@item.IDSIM</td>
+                </tr>
+                <tr>
+                    <td>Tình Trạng Sim: </td>
+                    <td>@item.TRANGTHAISIM</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<br />
+@if (Model.ListHD.Count() != 0)
+{
+    <div style="clear:both;width:49%;margin:auto" id="div-1">
+        <table style="margin-right:2%;margin-top:50px;text-align:center;border:2px solid;width:98%">
+            <thead>
+                <tr>
+                    <th colspan="4" style="text-align:center;border-bottom:1px solid ">Hóa đơn</th>
+                </tr>
+                <tr style="border-bottom:1px solid">
+                    <th style="text-align:center;border-right:1px solid;">Tháng</th>
+                    <th style="text-align:center;border-right:1px solid ">Năm</th>
+                    <th style="text-align:center;border-right:1px solid ">Tổng tiền</th>
+                    <th style="text-align:center">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListHD)
+                {
+                    var url = "?searching=" + ViewBag.Searching + "&month=" + item.THANG + "&year=" + item.NAM;
+                    <tr>
+                        <td style="border-right:1px solid"><a href="@url">@item.THANG</a></td>
+                        <td style="border-right:1px solid">@item.NAM</td>
+                        <td style="border-right:1px solid">@item.TONGTIEN</td>
+                        <td>@item.TRANGTHAI</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model.ListHD, i => Url.Action("Index", "Home", new { searching = Request.QueryString["searching"], month = ViewBag.month, year = ViewBag.year, i, j = ViewBag.PageListCTSD }))
+    </div>
+}
+else
+{<div>Không có chi tiết sử dụng</div>}
+@if (Model.ListCTSD.Any() == true)
+{
+    <style>
+        #div-1 {
+            float: left
+        }
+    </style>
+    <table style="margin-top:50px;width:49%;text-align:center;border:2px solid black">
+        <thead>
+            <tr>
+                <th colspan="3" style="text-align:center;border-bottom:1px solid">Chi tiết cuộc gọi</th>
+            </tr>
+            <tr style="border-bottom:1px solid">
+                <th style="text-align:center;border-right:1px solid">Thời gian bắt đầu</th>
+                <th style="text-align:center;border-right:1px solid">Thời gian kết thúc</th>
+                <th style="text-align:center">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ListCTSD)
+            {
+                <tr>
+                    <td style="border-right:1px solid">@item.TGKT</td>
+                    <td style="border-right:1px solid">@item.TGKT</td>
+                    <td>@item.THANHTIEN</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Html.PagedListPager(Model.ListCTSD, j => Url.Action("Index", "Home", new { searching = Request.QueryString["searching"], month = ViewBag.month, year = ViewBag.year, i = ViewBag.PageListHD, j }))
+}
+

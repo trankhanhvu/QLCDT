@@ -1,0 +1,43 @@
+﻿@model QLCDT1.Models.MyViewModel
+@{
+    ViewBag.Title = "Index2";
+}
+<br /><br />
+<span>Chứng minh nhân dân</span>
+@using (Html.BeginForm("Index2", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching", null, new { @placeholder = "Nhập vào CMND" })<input type="submit" value="Search" id="searchbox" />
+}
+<table class="table-striped" style="margin:auto;margin-top:50px;width:80%;text-align:center;border:2px solid black">
+    @if (Model.ListHD.Count() == 0)
+    {
+            <tr>
+                <td colspan="2" style="color:red">
+                    Không tìm thấy chứng minh nhân dân !!!
+                </td>
+            </tr>
+    }
+    else
+    {
+        <thead>
+            <tr>
+                <th colspan="3" style="text-align:center;border-bottom:1px solid">Danh sách số điện thoại</th>
+            </tr>
+            <tr style="border-bottom:1px solid">
+                <th style="text-align:center;border-right:1px solid">Tên khách hàng</th>
+                <th style="text-align:center;border-right:1px solid">Chứng minh nhân dân</th>
+                <th style="text-align:center">Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ListHD)
+            {
+                <tr>
+                    <td style="border-right:1px solid">@item.TENKH</td>
+                    <td style="border-right:1px solid">@item.CMND</td>
+                    <td><a href="@Url.Action("Index", "Home", new { searching = item.IDSIM})">@item.IDSIM</a></td>
+                </tr>
+            }
+        </tbody>
+    }
+    </table>
